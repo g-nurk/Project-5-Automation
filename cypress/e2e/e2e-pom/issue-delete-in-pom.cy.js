@@ -11,21 +11,12 @@ describe("Issue delete", () => {
       });
   });
 
-  /*I added in the IssueModal.js:
-    validateNumberOfIssuesInBacklog(expectedIssuesAfterDeletingOne) {
-    cy.get('[data-testid="board-list:backlog"]').within(() => {
-      cy.get('[data-testid="list-issue"]').should(
-        "have.length",
-        expectedIssuesAfterDeletingOne
-      );
-    }); */
-
   it("Should delete issue successfully", () => {
     const expectedIssuesAfterDeletingOne = 3;
     IssueModal.clickDeleteButton();
     IssueModal.confirmDeletion();
     IssueModal.ensureIssueIsNotVisibleOnBoard(issueTitle);
-    IssueModal.validateNumberOfIssuesInBacklog(expectedIssuesAfterDeletingOne);
+    IssueModal.validateAmountOfIssuesInBacklog(expectedIssuesAfterDeletingOne);
   });
 
   it("Should cancel deletion process successfully", () => {
@@ -34,6 +25,6 @@ describe("Issue delete", () => {
     IssueModal.cancelDeletion();
     IssueModal.closeDetailModal();
     IssueModal.ensureIssueIsVisibleOnBoard(issueTitle);
-    IssueModal.validateNumberOfIssuesInBacklog(expectedIssuesAfterCancelling);
+    IssueModal.validateAmountOfIssuesInBacklog(expectedIssuesAfterCancelling);
   });
 });
