@@ -9,6 +9,7 @@ Functionalities to cover: Creating tasks; Deleting tasks; Creating, editing, del
 In addition, I had to modify deletion test cases to POM format and we used random data plugin (faker) for creating a task: 
 
 const randomTitle = faker.lorem.word();
+
 const randomDescription = faker.lorem.sentence();
 
 To make less repetition in writing code and just to make it more readable, constants were used.
